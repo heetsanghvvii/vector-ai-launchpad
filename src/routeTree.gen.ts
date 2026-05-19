@@ -11,6 +11,12 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesResearchIntelligenceRouteImport } from './routes/services.research-intelligence'
+import { Route as ServicesDataAnalysisRouteImport } from './routes/services.data-analysis'
+import { Route as ServicesCreativeVisualRouteImport } from './routes/services.creative-visual'
+import { Route as ServicesContentCopywritingRouteImport } from './routes/services.content-copywriting'
+import { Route as ServicesChatbotsAutomationRouteImport } from './routes/services.chatbots-automation'
+import { Route as ServicesBusinessOperationsRouteImport } from './routes/services.business-operations'
 
 const PricingRoute = PricingRouteImport.update({
   id: '/pricing',
@@ -22,31 +28,114 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesResearchIntelligenceRoute =
+  ServicesResearchIntelligenceRouteImport.update({
+    id: '/services/research-intelligence',
+    path: '/services/research-intelligence',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServicesDataAnalysisRoute = ServicesDataAnalysisRouteImport.update({
+  id: '/services/data-analysis',
+  path: '/services/data-analysis',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesCreativeVisualRoute = ServicesCreativeVisualRouteImport.update({
+  id: '/services/creative-visual',
+  path: '/services/creative-visual',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesContentCopywritingRoute =
+  ServicesContentCopywritingRouteImport.update({
+    id: '/services/content-copywriting',
+    path: '/services/content-copywriting',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServicesChatbotsAutomationRoute =
+  ServicesChatbotsAutomationRouteImport.update({
+    id: '/services/chatbots-automation',
+    path: '/services/chatbots-automation',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServicesBusinessOperationsRoute =
+  ServicesBusinessOperationsRouteImport.update({
+    id: '/services/business-operations',
+    path: '/services/business-operations',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/pricing': typeof PricingRoute
+  '/services/business-operations': typeof ServicesBusinessOperationsRoute
+  '/services/chatbots-automation': typeof ServicesChatbotsAutomationRoute
+  '/services/content-copywriting': typeof ServicesContentCopywritingRoute
+  '/services/creative-visual': typeof ServicesCreativeVisualRoute
+  '/services/data-analysis': typeof ServicesDataAnalysisRoute
+  '/services/research-intelligence': typeof ServicesResearchIntelligenceRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/pricing': typeof PricingRoute
+  '/services/business-operations': typeof ServicesBusinessOperationsRoute
+  '/services/chatbots-automation': typeof ServicesChatbotsAutomationRoute
+  '/services/content-copywriting': typeof ServicesContentCopywritingRoute
+  '/services/creative-visual': typeof ServicesCreativeVisualRoute
+  '/services/data-analysis': typeof ServicesDataAnalysisRoute
+  '/services/research-intelligence': typeof ServicesResearchIntelligenceRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/pricing': typeof PricingRoute
+  '/services/business-operations': typeof ServicesBusinessOperationsRoute
+  '/services/chatbots-automation': typeof ServicesChatbotsAutomationRoute
+  '/services/content-copywriting': typeof ServicesContentCopywritingRoute
+  '/services/creative-visual': typeof ServicesCreativeVisualRoute
+  '/services/data-analysis': typeof ServicesDataAnalysisRoute
+  '/services/research-intelligence': typeof ServicesResearchIntelligenceRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/pricing'
+  fullPaths:
+    | '/'
+    | '/pricing'
+    | '/services/business-operations'
+    | '/services/chatbots-automation'
+    | '/services/content-copywriting'
+    | '/services/creative-visual'
+    | '/services/data-analysis'
+    | '/services/research-intelligence'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/pricing'
-  id: '__root__' | '/' | '/pricing'
+  to:
+    | '/'
+    | '/pricing'
+    | '/services/business-operations'
+    | '/services/chatbots-automation'
+    | '/services/content-copywriting'
+    | '/services/creative-visual'
+    | '/services/data-analysis'
+    | '/services/research-intelligence'
+  id:
+    | '__root__'
+    | '/'
+    | '/pricing'
+    | '/services/business-operations'
+    | '/services/chatbots-automation'
+    | '/services/content-copywriting'
+    | '/services/creative-visual'
+    | '/services/data-analysis'
+    | '/services/research-intelligence'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   PricingRoute: typeof PricingRoute
+  ServicesBusinessOperationsRoute: typeof ServicesBusinessOperationsRoute
+  ServicesChatbotsAutomationRoute: typeof ServicesChatbotsAutomationRoute
+  ServicesContentCopywritingRoute: typeof ServicesContentCopywritingRoute
+  ServicesCreativeVisualRoute: typeof ServicesCreativeVisualRoute
+  ServicesDataAnalysisRoute: typeof ServicesDataAnalysisRoute
+  ServicesResearchIntelligenceRoute: typeof ServicesResearchIntelligenceRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +154,60 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/research-intelligence': {
+      id: '/services/research-intelligence'
+      path: '/services/research-intelligence'
+      fullPath: '/services/research-intelligence'
+      preLoaderRoute: typeof ServicesResearchIntelligenceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/data-analysis': {
+      id: '/services/data-analysis'
+      path: '/services/data-analysis'
+      fullPath: '/services/data-analysis'
+      preLoaderRoute: typeof ServicesDataAnalysisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/creative-visual': {
+      id: '/services/creative-visual'
+      path: '/services/creative-visual'
+      fullPath: '/services/creative-visual'
+      preLoaderRoute: typeof ServicesCreativeVisualRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/content-copywriting': {
+      id: '/services/content-copywriting'
+      path: '/services/content-copywriting'
+      fullPath: '/services/content-copywriting'
+      preLoaderRoute: typeof ServicesContentCopywritingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/chatbots-automation': {
+      id: '/services/chatbots-automation'
+      path: '/services/chatbots-automation'
+      fullPath: '/services/chatbots-automation'
+      preLoaderRoute: typeof ServicesChatbotsAutomationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/business-operations': {
+      id: '/services/business-operations'
+      path: '/services/business-operations'
+      fullPath: '/services/business-operations'
+      preLoaderRoute: typeof ServicesBusinessOperationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   PricingRoute: PricingRoute,
+  ServicesBusinessOperationsRoute: ServicesBusinessOperationsRoute,
+  ServicesChatbotsAutomationRoute: ServicesChatbotsAutomationRoute,
+  ServicesContentCopywritingRoute: ServicesContentCopywritingRoute,
+  ServicesCreativeVisualRoute: ServicesCreativeVisualRoute,
+  ServicesDataAnalysisRoute: ServicesDataAnalysisRoute,
+  ServicesResearchIntelligenceRoute: ServicesResearchIntelligenceRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
